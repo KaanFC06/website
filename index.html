@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yozgat Dini İhtisas Merkezi - İnteraktif Mobil Arayüz</title>
+  <!-- FontAwesome İkon Kütüphanesi -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- CSS Dosyası Bağlantısı -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- TELEFON MOCKUP ÇERÇEVESİ -->
+  <div class="phone-container">
+    
+    <!-- Ekran Çentiği -->
+    <div class="dynamic-island"></div>
+
+    <!-- Saat & Pil Çubuğu -->
+    <div class="status-bar">
+      <span id="live-clock">10:09</span>
+      <div class="icons">
+        <i class="fa-solid fa-signal"></i>
+        <i class="fa-solid fa-wifi"></i>
+        <i class="fa-solid fa-battery-full"></i>
+      </div>
+    </div>
+
+    <!-- ÜST BAŞLIK (HEADER) -->
+    <header>
+      <div class="header-top">
+        <button class="icon-btn" onclick="toggleDrawer()"><i class="fa-solid fa-bars"></i></button>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Diyanet_I%C5%9Fleri_Ba%C5%9Fkanl%C4%B1%C4%9F%C4%B1_logo.svg/1200px-Diyanet_I%C5%9Fleri_Ba%C5%9Fkanl%C4%B1%C4%9F%C4%B1_logo.svg.png" alt="Diyanet Logo" class="logo-img">
+        <button class="icon-btn" onclick="openSearch()"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </div>
+      <div class="site-title">
+        Yozgat Şehit İbrahim Yılmaz<br>Dini İhtisas Merkezi Müdürlüğü
+      </div>
+    </header>
+
+    <!-- NAV BAR (SEKMELER) -->
+    <nav>
+      <ul class="nav-tabs">
+        <li><button class="nav-link active" onclick="switchTab('home', this)">Ana Sayfa</button></li>
+        <li><button class="nav-link" onclick="switchTab('personel', this)">Personelimiz</button></li>
+        <li><button class="nav-link" onclick="switchTab('programlar', this)">Programlar</button></li>
+        <li><button class="nav-link" onclick="switchTab('dokumanlar', this)">Dokümanlar</button></li>
+        <li><button class="nav-link" onclick="switchTab('iletisim', this)">İletişim</button></li>
+      </ul>
+    </nav>
+
+    <!-- DİNAMİK İÇERİK ALANI -->
+    <div class="content-area">
+
+      <!-- 1. ANA SAYFA SAYFASI -->
+      <div id="page-home" class="view-page active">
+        <!-- Öne Çıkan Manşet Haber -->
+        <div class="hero-card">
+          <img src="https://picsum.photos/400/200?random=1" alt="Haber Görseli">
+          <div class="hero-body">
+            <span class="badge" style="background:rgba(255,255,255,0.2); color:white; margin-bottom:4px; display:inline-block;">GÜNCEL MANŞET</span>
+            <h3>Diyanet Akademisi Başkanı Doç. Dr. Enver Osman Kaan'dan Konferans</h3>
+            <p>Diyanet Akademisi Başkanı Doç. Dr. Enver Osman Kaan aday din görevlilerimize konferans verdi.</p>
+            <button class="btn-action" onclick="alert('Haber detayları açılıyor...')">
+              Detayı Oku <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- 6'lı Hızlı Erişim Izgarası (Grid Buttons) -->
+        <div class="menu-grid">
+          <button class="grid-btn" onclick="switchTab('mezunlar', null)">
+            <i class="fa-solid fa-user-graduate"></i>
+            <span>Mezunlarımız</span>
+          </button>
+          <button class="grid-btn" onclick="switchTab('programlar', null)">
+            <i class="fa-solid fa-book-open-reader"></i>
+            <span>Eğitim Müfredatı</span>
+          </button>
+          <button class="grid-btn" onclick="switchTab('dokumanlar', null)">
+            <i class="fa-solid fa-folder-open"></i>
+            <span>Dokümanlar</span>
+          </button>
+          <button class="grid-btn" onclick="switchTab('kuran', null)">
+            <i class="fa-solid fa-book-quran"></i>
+            <span>Kur'an-ı Kerim</span>
+          </button>
+          <button class="grid-btn" onclick="switchTab('sorucevap', null)">
+            <i class="fa-solid fa-comments"></i>
+            <span>Soru ve Cevaplar</span>
+          </button>
+          <button class="grid-btn" onclick="switchTab('konferans', null)">
+            <i class="fa-solid fa-chalkboard-user"></i>
+            <span>Konferanslar</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 2. PERSONELİMİZ SAYFASI -->
+      <div id="page-personel" class="view-page">
+        <div class="card">
+          <div class="card-title"><i class="fa-solid fa-users"></i> Kurum Personeli</div>
+          <div class="person-card">
+            <div class="avatar">MD</div>
+            <div class="person-info">
+              <h4>A. Y.</h4>
+              <p>Dini İhtisas Merkezi Müdürü</p>
+            </div>
+          </div>
+          <div class="person-card">
+            <div class="avatar">ÖĞ</div>
+            <div class="person-info">
+              <h4>M. K.</h4>
+              <p>Eğitim Görevlisi - Tefsir</p>
+            </div>
+          </div>
+          <div class="person-card">
+            <div class="avatar">ÖĞ</div>
+            <div class="person-info">
+              <h4>H. I.</h4>
+              <p>Eğitim Görevlisi - Hadis / Fıkıh</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. PROGRAMLAR SAYFASI -->
+      <div id="page-programlar" class="view-page">
+        <div class="card">
+          <div class="card-title"><i class="fa-solid fa-graduation-cap"></i> Eğitim Programları</div>
+          <div class="list-item">
+            <div class="list-item-title"><i class="fa-solid fa-check-circle" style="color:#0d5c63;"></i> Aday Din Görevlileri Eğitimi</div>
+            <span class="badge">Aktif</span>
+          </div>
+          <div class="list-item">
+            <div class="list-item-title"><i class="fa-solid fa-check-circle" style="color:#0d5c63;"></i> Hizmet İçi Eğitim Kursları</div>
+            <span class="badge">Aktif</span>
+          </div>
+          <div class="list-item">
+            <div class="list-item-title"><i class="fa-solid fa-clock" style="color:#718096;"></i> Aşere-i Takrib Kursu</div>
+            <span class="badge" style="background:#edf2f7; color:#4a5568;">Yakında</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. DOKÜMANLAR SAYFASI -->
+      <div id="page-dokumanlar" class="view-page">
+        <div class="card">
+          <div class="card-title"><i class="fa-solid fa-file-pdf"></i> İndirilebilir Dokümanlar</div>
+          <div class="list-item">
+            <div class="list-item-title"><i class="fa-regular fa-file-pdf" style="color:#e53e3e;"></i> Haftalık Ders Programı.pdf</div>
+            <button class="btn-action" style="padding:4px 8px;" onclick="alert('İndiriliyor...')"><i class="fa-solid fa-download"></i></button>
+          </div>
+          <div class="list-item">
+            <div class="list-item-title"><i class="fa-regular fa-file-pdf" style="color:#e53e3e;"></i> Kursiyer Başvuru Formu.pdf</div>
+            <button class="btn-action" style="padding:4px 8px;" onclick="alert('İndiriliyor...')"><i class="fa-solid fa-download"></i></button>
+          </div>
+          <div class="list-item">
+            <div class="list-item-title"><i class="fa-regular fa-file-word" style="color:#3182ce;"></i> Seminer Sunum Esasları.docx</div>
+            <button class="btn-action" style="padding:4px 8px;" onclick="alert('İndiriliyor...')"><i class="fa-solid fa-download"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. İLETİŞİM SAYFASI -->
+      <div id="page-iletisim" class="view-page">
+        <div class="card">
+          <div class="card-title"><i class="fa-solid fa-location-dot"></i> İletişim Bilgileri</div>
+          <p style="font-size:11px; color:#4a5568; margin-bottom:8px;">
+            <strong>Adres:</strong> Yozgat Şehit İbrahim Yılmaz Dini İhtisas Merkezi, Yozgat / Türkiye
+          </p>
+          <p style="font-size:11px; color:#4a5568; margin-bottom:8px;">
+            <strong>Telefon:</strong> 0120 // 332 507954
+          </p>
+          <button class="btn-action" style="width:100%; justify-content:center; margin-top:8px;" onclick="alert('Haritalar uygulaması açılıyor...')">
+            <i class="fa-solid fa-map-location-dot"></i> Haritada Göster
+          </button>
+        </div>
+      </div>
+
+      <!-- 6. MEZUNLARIMIZ SAYFASI -->
+      <div id="page-mezunlar" class="view-page">
+        <div class="card">
+          <div class="card-title"><i class="fa-solid fa-user-graduate"></i> Mezunlarımız</div>
+          <p style="font-size:11px; color:#4a5568;">Merkezimizden dönemler halinde başarıyla mezun olan din görevlilerimizin listesi ve dönem albümleri.</p>
+        </div>
+      </div>
+
+      <!-- 7. KUR'AN SAYFASI -->
+      <div id="page-kuran" class="view-page">
+        <div class="card">
+          <div class="card-title"><i class="fa-solid fa-book-quran"></i> Kur'an-ı Kerim Portalı</div>
+          <p style="font-size:11px; color:#4a5568;">Kur'an-ı Kerim tilavetleri, hatim programları ve tefsir kaynakları.</p>
+        </div>
+      </div>
+
+      <!-- 8. SORU & CEVAP SAYFASI -->
+      <div id="page-sorucevap" class="view-page">
+        <div class="card">
+          <div class="card-title"><i class="fa-solid fa-comments"></i> Soru ve Cevaplar</div>
+          <p style="font-size:11px; color:#4a5568;">Sıkça sorulan dini ve idari soruların cevapları.</p>
+        </div>
+      </div>
+
+      <!-- 9. KONFERANSLAR SAYFASI -->
+      <div id="page-konferans" class="view-page">
+        <div class="card">
+          <div class="card-title"><i class="fa-solid fa-chalkboard-user"></i> Konferans ve Seminerler</div>
+          <p style="font-size:11px; color:#4a5568;">Düzenlenen konferansların video kayıtları ve seminer takvimi.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ALT BİLGİ (FOOTER) -->
+    <footer>
+      <button class="diyanet-haber-btn" onclick="window.open('https://www.diyanethaber.com.tr', '_blank')">
+        <i class="fa-solid fa-newspaper"></i> DİYANET HABER
+      </button>
+
+      <div class="social-links">
+        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+
+      <div class="contact-info">
+        /diyanethbr &bull; Yozgat İhtisas Merkezi
+      </div>
+    </footer>
+
+    <!-- ARAMA MODALI -->
+    <div id="search-modal" class="modal">
+      <div class="modal-content">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+          <strong style="font-size:13px; color:#0d5c63;">Arama Yap</strong>
+          <button class="icon-btn" onclick="closeSearch()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <input type="text" class="search-input" placeholder="Aranacak kelimeyi giriniz...">
+        <button class="btn-action" style="width:100%; justify-content:center;" onclick="alert('Arama tamamlandı'); closeSearch();">
+          <i class="fa-solid fa-magnifying-glass"></i> Ara
+        </button>
+      </div>
+    </div>
+
+    <!-- YAN MENÜ (DRAWER) -->
+    <div id="side-drawer" class="drawer">
+      <div class="drawer-header">
+        <strong style="font-size:13px; color:#0d5c63;">MENÜ</strong>
+        <button class="icon-btn" onclick="toggleDrawer()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <ul class="drawer-menu">
+        <li><button onclick="switchTab('home', null); toggleDrawer();"><i class="fa-solid fa-house"></i> Ana Sayfa</button></li>
+        <li><button onclick="switchTab('personel', null); toggleDrawer();"><i class="fa-solid fa-users"></i> Personelimiz</button></li>
+        <li><button onclick="switchTab('programlar', null); toggleDrawer();"><i class="fa-solid fa-graduation-cap"></i> Programlar</button></li>
+        <li><button onclick="switchTab('dokumanlar', null); toggleDrawer();"><i class="fa-solid fa-folder"></i> Dokümanlar</button></li>
+        <li><button onclick="switchTab('iletisim', null); toggleDrawer();"><i class="fa-solid fa-envelope"></i> İletişim</button></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- JAVASCRIPT ETKİLEŞİM KODLARI -->
+  <script>
+    function switchTab(pageId, element) {
+      const pages = document.querySelectorAll('.view-page');
+      pages.forEach(page => page.classList.remove('active'));
+
+      const targetPage = document.getElementById('page-' + pageId);
+      if (targetPage) {
+        targetPage.classList.add('active');
+      }
+
+      const navLinks = document.querySelectorAll('.nav-link');
+      navLinks.forEach(link => link.classList.remove('active'));
+
+      if (element) {
+        element.classList.add('active');
+      } else {
+        navLinks.forEach(link => {
+          if (link.getAttribute('onclick') && link.getAttribute('onclick').includes(pageId)) {
+            link.classList.add('active');
+          }
+        });
+      }
+    }
+
+    function openSearch() {
+      document.getElementById('search-modal').style.display = 'block';
+    }
+
+    function closeSearch() {
+      document.getElementById('search-modal').style.display = 'none';
+    }
+
+    function toggleDrawer() {
+      const drawer = document.getElementById('side-drawer');
+      drawer.classList.toggle('open');
+    }
+
+    function updateClock() {
+      const now = new Date();
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      document.getElementById('live-clock').textContent = `${hours}:${minutes}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+
+</body>
+</html> 
